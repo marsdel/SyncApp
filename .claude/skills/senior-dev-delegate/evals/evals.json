@@ -1,0 +1,26 @@
+{
+  "skill_name": "senior-dev-delegate",
+  "evals": [
+    {
+      "id": 1,
+      "name": "orden-compra-secuencial-race",
+      "prompt": "En Compras, dos usuarios que crean una orden de compra casi simultáneamente a veces terminan con el mismo num_orden_compra duplicado. Revisa el flujo de creación en app/Http/Controllers/Compras/ComprasController.php y arréglalo.",
+      "expected_output": "El agente debe identificar la generación del número de secuencial como una condición de carrera, aplicar lockForUpdate (regla obligatoria del proyecto para secuenciales), mantener la transacción existente, y añadir/actualizar un test que cubra la concurrencia o al menos la generación correcta del secuencial. Debe seguir el formato de salida estricto (código primero, mínimo relleno).",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "crear-concepto-cxp-validacion",
+      "prompt": "En el feature crear-concepto-cxp (resources/js/src/features/crear-concepto-cxp) agrega validación: la descripción no puede estar vacía ni superar 200 caracteres, y el monto debe ser mayor a cero antes de guardar. Sigue el patrón que ya usa useConcepto.ts.",
+      "expected_output": "El agente debe leer useConcepto.ts y los archivos vecinos del feature antes de escribir, añadir la validación en TypeScript siguiendo el patrón/estructura ya existente (no inventar un patrón nuevo), sin agregar dependencias nuevas, y explicar en viñetas breves si hace falta algún paso adicional (p.ej. mostrar el error en el formulario).",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "cxp-monto-negativo-debug",
+      "prompt": "Los usuarios reportan que en 'crear concepto CXP' el campo de monto acepta valores negativos y el backend los termina guardando igual. Depura y arregla.",
+      "expected_output": "Antes de la solución, una sola línea indicando la causa raíz (ej. falta de validación de rango en frontend y/o backend). Luego el fix real (no solo un parche cosmético), validando en el límite del sistema (Form Request o composable de validación), no envolviendo código interno innecesariamente.",
+      "files": []
+    }
+  ]
+}
